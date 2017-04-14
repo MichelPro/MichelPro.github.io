@@ -94,7 +94,7 @@
 <meta property="og:url" content="http://yoursite.com/2017/04/14/blog170414/index.html">
 <meta property="og:site_name" content="MichelPro's Blog">
 <meta property="og:description" content="正文最近迷上了Kotlin，正在逐步将项目中的Java代码部分替代成Kotlin实现，但是一个个删除重写岂不是太麻烦？还好AndroidStudio有这么一个工具：Convert Java File to Kotlin File，通过名字我们就知道，这是将Java文件一键转换成Kotlin文件的工具。 初步转换按捺住激动的心情，从项目中的JavaBean入手开始转起！咻！~~ 但是发现转换过来的代">
-<meta property="og:updated_time" content="2017-04-14T07:59:35.158Z">
+<meta property="og:updated_time" content="2017-04-14T08:20:28.331Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="打死data class这个龟孙">
 <meta name="twitter:description" content="正文最近迷上了Kotlin，正在逐步将项目中的Java代码部分替代成Kotlin实现，但是一个个删除重写岂不是太麻烦？还好AndroidStudio有这么一个工具：Convert Java File to Kotlin File，通过名字我们就知道，这是将Java文件一键转换成Kotlin文件的工具。 初步转换按捺住激动的心情，从项目中的JavaBean入手开始转起！咻！~~ 但是发现转换过来的代">
@@ -369,7 +369,7 @@
 <p>最后我们返回到最初的data class，在前面加上你的注解！<br><figure class="highlight kotlin"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@PoKo</span> <span class="keyword">data</span> <span class="class"><span class="keyword">class</span> <span class="title">User</span></span>(</div><div class="line">    <span class="keyword">var</span> id: String,</div><div class="line">    <span class="keyword">var</span> name: String</div><div class="line">)</div></pre></td></tr></table></figure></p>
 <p>这次的我信心满满！没毛病了吧！Run！</p>
 <p>事实告诉我！不要轻易立Flag！</p>
-<p>同样的Error又来了一遍！WTF？我都快怀疑人生了好吧！后来才发现原来是FastJson的锅！换成Gson就没毛病！至于为啥？我也是渣渣，我哪知道！我现在只知道我要把项目中的FastJson换成Gson去！再也不相信阿里爸爸了！</p>
+<p>同样的Error又来了一遍！WTF？我都快怀疑人生了好吧！后来才发现原来是FastJson的锅！换成Gson就没毛病！至于为啥？我现在也不知道！等我有时间再研究，如果知道了为什么！我还会再写一个博客的！我现在只知道我要把项目中的FastJson换成Gson去！再也不相信阿里爸爸了！</p>
 <p>好了，如果你用Gson，你可以选择赋初值，也可以选择使用注解。如果你用FastJson，那你就赋初值吧！如果嫌麻烦？学我！全面换成Gson！</p>
 <p>啰啰嗦嗦终于写完了，废话比较多！随意看看吧。</p>
 <h2 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h2><p>爬坑的过程中主要参照了Benny的博客才解决，如果想对这个问题有更深入的理解，可以直接访问<a href="http://www.kotliner.cn/2017/04/03/Kotlin%20%E5%85%BC%E5%AE%B9%20Java%20%E9%81%87%E5%88%B0%E7%9A%84%E6%9C%80%E5%A4%A7%E7%9A%84%E5%9D%91%20/" target="_blank" rel="external">Benny的博客</a>。我也是因为Benny才入的Kotlin的坑！希望Kotlin能越来越火！</p>
