@@ -90,13 +90,13 @@
 <meta name="description" content="正文最近迷上了Kotlin，正在逐步将项目中的Java代码部分替代成Kotlin实现，但是一个个删除重写岂不是太麻烦？还好AndroidStudio有这么一个工具：Convert Java File to Kotlin File，通过名字我们就知道，这是将Java文件一键转换成Kotlin文件的工具。 初步转换按捺住激动的心情，从项目中的JavaBean入手开始转起！咻！~~ 但是发现转换过来的代">
 <meta name="keywords" content="kotlin">
 <meta property="og:type" content="article">
-<meta property="og:title" content="打死data class这个龟孙">
+<meta property="og:title" content="本以为是data class 的锅，没想到是FastJson的锅">
 <meta property="og:url" content="http://yoursite.com/2017/04/14/blog170414/index.html">
 <meta property="og:site_name" content="MichelPro's Blog">
 <meta property="og:description" content="正文最近迷上了Kotlin，正在逐步将项目中的Java代码部分替代成Kotlin实现，但是一个个删除重写岂不是太麻烦？还好AndroidStudio有这么一个工具：Convert Java File to Kotlin File，通过名字我们就知道，这是将Java文件一键转换成Kotlin文件的工具。 初步转换按捺住激动的心情，从项目中的JavaBean入手开始转起！咻！~~ 但是发现转换过来的代">
-<meta property="og:updated_time" content="2017-04-14T08:20:28.331Z">
+<meta property="og:updated_time" content="2017-04-15T05:12:54.963Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="打死data class这个龟孙">
+<meta name="twitter:title" content="本以为是data class 的锅，没想到是FastJson的锅">
 <meta name="twitter:description" content="正文最近迷上了Kotlin，正在逐步将项目中的Java代码部分替代成Kotlin实现，但是一个个删除重写岂不是太麻烦？还好AndroidStudio有这么一个工具：Convert Java File to Kotlin File，通过名字我们就知道，这是将Java文件一键转换成Kotlin文件的工具。 初步转换按捺住激动的心情，从项目中的JavaBean入手开始转起！咻！~~ 但是发现转换过来的代">
 
 
@@ -131,7 +131,7 @@
 
 
 
-  <title> 打死data class这个龟孙 | MichelPro's Blog </title>
+  <title> 本以为是data class 的锅，没想到是FastJson的锅 | MichelPro's Blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -281,7 +281,7 @@
             
             
               
-                打死data class这个龟孙
+                本以为是data class 的锅，没想到是FastJson的锅
               
             
           </h1>
@@ -363,13 +363,15 @@
 <h3 id="正常data-class的写法"><a href="#正常data-class的写法" class="headerlink" title="正常data class的写法"></a>正常data class的写法</h3><p>但是我感觉并不是这样啊！我强迫症啊！这样写你可以让参数是null 啊！而且还必须要赋初值！！看起来简直丑到爆！于是我就手贱删掉了！它就变成这个样子：<br><figure class="highlight kotlin"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">data</span> <span class="class"><span class="keyword">class</span> <span class="title">User</span></span>(</div><div class="line">    <span class="keyword">var</span> id: String,</div><div class="line">    <span class="keyword">var</span> name: String</div><div class="line">)</div></pre></td></tr></table></figure></p>
 <p>这样才好看？是不是？（鬼知道我什么审美）。然后！让我们红尘作伴，run的潇潇洒洒！WTF？！崩了！<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">com.alibaba.fastjson.JSONException: default constructor not found</div></pre></td></tr></table></figure></p>
 <p>报错很直白嘛！就是告诉你没有默认的构造函数！这不就X了狗了么（放开狗！让你来！）</p>
-<h3 id="noArg"><a href="#noArg" class="headerlink" title="noArg"></a>noArg</h3><p>后来发现是少一个noArg的东西，按照教程，我们首先在自己Project的gradle添加如下配置：<br><figure class="highlight groovy"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">buildscript &#123;</div><div class="line">...</div><div class="line">    dependencies &#123;</div><div class="line">        ...</div><div class="line">        classpath <span class="string">"org.jetbrains.kotlin:kotlin-noarg:$kotlin_version"</span></div><div class="line">        ...</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h3 id="noArg"><a href="#noArg" class="headerlink" title="noArg"></a>noArg</h3><p>据说是少一个noArg的东西，按照教程，我们首先在自己Project的gradle添加如下配置：<br><figure class="highlight groovy"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">buildscript &#123;</div><div class="line">...</div><div class="line">    dependencies &#123;</div><div class="line">        ...</div><div class="line">        classpath <span class="string">"org.jetbrains.kotlin:kotlin-noarg:$kotlin_version"</span></div><div class="line">        ...</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 <p>然后我们去自己的module里创建一个注解类（Kotlin的），放在哪、命名都随你，反正我是命名为PoKo<br><figure class="highlight kotlin"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">annotation</span> <span class="class"><span class="keyword">class</span> <span class="title">PoKo</span></span></div></pre></td></tr></table></figure></p>
 <p>紧接着我们回到之前的gradle文件中，继续添加配置：<br><figure class="highlight groovy"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">apply <span class="string">plugin:</span> <span class="string">"kotlin-noarg"</span></div><div class="line">　</div><div class="line">noArg &#123;</div><div class="line">    annotation(<span class="string">"com.your.Annotation"</span>) <span class="comment">// 注意！这里是你的注解的全路径！也就是我的Poko的全路径</span></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 <p>最后我们返回到最初的data class，在前面加上你的注解！<br><figure class="highlight kotlin"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@PoKo</span> <span class="keyword">data</span> <span class="class"><span class="keyword">class</span> <span class="title">User</span></span>(</div><div class="line">    <span class="keyword">var</span> id: String,</div><div class="line">    <span class="keyword">var</span> name: String</div><div class="line">)</div></pre></td></tr></table></figure></p>
 <p>这次的我信心满满！没毛病了吧！Run！</p>
-<p>事实告诉我！不要轻易立Flag！</p>
-<p>同样的Error又来了一遍！WTF？我都快怀疑人生了好吧！后来才发现原来是FastJson的锅！换成Gson就没毛病！至于为啥？我现在也不知道！等我有时间再研究，如果知道了为什么！我还会再写一个博客的！我现在只知道我要把项目中的FastJson换成Gson去！再也不相信阿里爸爸了！</p>
+<h3 id="打脸"><a href="#打脸" class="headerlink" title="打脸"></a>打脸</h3><p>事实告诉我！不要轻易立Flag！</p>
+<p>同样的Error又来了一遍！WTF？我都快怀疑人生了好吧！后来才发现原来是FastJson的锅！FastJson并不是通过反射去获取无参构造。这个noArg的解决方案主要是针对orm和spring那种通过反射去获取无参构造失败的解决方案。</p>
+<p>至于json解析？还是换成Google的亲儿子Gson吧。而且使用Gson的话，你也不必去使用这个注解。因为Gson比较流氓。他在解析对象的时候，先去找无参构造，找不到就用 Unsafe.allocateInstance 来创建对象，主要这个创建方法非常的底层，你可以简单的理解为只为实例化出来的 Java 对象开辟了对象存续需要的空间，而对应地它的成员没有一个会正常初始化。</p>
+<p>而我？我知道我要把项目中的FastJson换成Gson去！再也不相信阿里爸爸了！</p>
 <p>好了，如果你用Gson，你可以选择赋初值，也可以选择使用注解。如果你用FastJson，那你就赋初值吧！如果嫌麻烦？学我！全面换成Gson！</p>
 <p>啰啰嗦嗦终于写完了，废话比较多！随意看看吧。</p>
 <h2 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h2><p>爬坑的过程中主要参照了Benny的博客才解决，如果想对这个问题有更深入的理解，可以直接访问<a href="http://www.kotliner.cn/2017/04/03/Kotlin%20%E5%85%BC%E5%AE%B9%20Java%20%E9%81%87%E5%88%B0%E7%9A%84%E6%9C%80%E5%A4%A7%E7%9A%84%E5%9D%91%20/" target="_blank" rel="external">Benny的博客</a>。我也是因为Benny才入的Kotlin的坑！希望Kotlin能越来越火！</p>
@@ -552,7 +554,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#正文"><span class="nav-number">1.</span> <span class="nav-text">正文</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#初步转换"><span class="nav-number">1.1.</span> <span class="nav-text">初步转换</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#有默认值的data-class"><span class="nav-number">1.2.</span> <span class="nav-text">有默认值的data class</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#正常data-class的写法"><span class="nav-number">1.3.</span> <span class="nav-text">正常data class的写法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#noArg"><span class="nav-number">1.4.</span> <span class="nav-text">noArg</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#结语"><span class="nav-number">2.</span> <span class="nav-text">结语</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#正文"><span class="nav-number">1.</span> <span class="nav-text">正文</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#初步转换"><span class="nav-number">1.1.</span> <span class="nav-text">初步转换</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#有默认值的data-class"><span class="nav-number">1.2.</span> <span class="nav-text">有默认值的data class</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#正常data-class的写法"><span class="nav-number">1.3.</span> <span class="nav-text">正常data class的写法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#noArg"><span class="nav-number">1.4.</span> <span class="nav-text">noArg</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#打脸"><span class="nav-number">1.5.</span> <span class="nav-text">打脸</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#结语"><span class="nav-number">2.</span> <span class="nav-text">结语</span></a></li></ol></div>
             
 
           </div>
