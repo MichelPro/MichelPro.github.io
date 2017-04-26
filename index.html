@@ -257,7 +257,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/04/14/blog170414/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/04/26/Kotlin上传到Jcenter/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="MichelPro">
@@ -279,7 +279,157 @@
             
               
                 
-                <a class="post-title-link" href="/2017/04/14/blog170414/" itemprop="url">
+                <a class="post-title-link" href="/2017/04/26/Kotlin上传到Jcenter/" itemprop="url">
+                  Kotlin项目发布到Maven/JCenter库
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-04-26T11:09:22+08:00">
+                2017-04-26
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/技术博文/" itemprop="url" rel="index">
+                    <span itemprop="name">技术博文</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <blockquote>
+<p>本文前提是已经有了自己的Maven/JCenter库，对于如何将自己的库发布到Maven/JCenter，本文在此不再赘述。</p>
+</blockquote>
+<h2 id="满心欢喜，发布失败"><a href="#满心欢喜，发布失败" class="headerlink" title="满心欢喜，发布失败"></a>满心欢喜，发布失败</h2><p>之前说过，最近在研究Kotlin，于是将自己的库部分代码换成Kotlin语言，没想到在发布到bintray的时候，控制台竟然报错：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">javadoc: 错误 -非法的程序包名称：“....kt”</div></pre></td></tr></table></figure>
+<!--查看全文-->
+<p>这时候有点无奈啊，javadoc竟然报错，还不能删，………………，否则jcenter审核不通过<br>………………</p>
+<h2 id="百度不行，Google救场"><a href="#百度不行，Google救场" class="headerlink" title="百度不行，Google救场"></a>百度不行，Google救场</h2><p><a href="https://liungkejin.github.io/2016/04/12/Publish-Kotlin-Lib-To-Jcenter.html" target="_blank" rel="external">Kejin</a>很好的解释了如何解决问题。未完待续。</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/04/14/Kotlin之Data class的坑/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="MichelPro">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/image.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="MichelPro's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/04/14/Kotlin之Data class的坑/" itemprop="url">
                   本以为是data class 的锅，没想到是FastJson的锅
                 </a>
               
@@ -360,7 +510,7 @@
 <p>但是发现转换过来的代码一点都不优雅：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">User</span></span>&#123;</div><div class="line">    var id: String? = <span class="keyword">null</span></div><div class="line">    var name: String? = <span class="keyword">null</span></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2017/04/14/blog170414/#more" rel="contents">
+            <a class="btn" href="/2017/04/14/Kotlin之Data class的坑/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -406,7 +556,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/04/13/blog170413/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/04/13/Hexo搭建Blog教程/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="MichelPro">
@@ -428,7 +578,7 @@
             
               
                 
-                <a class="post-title-link" href="/2017/04/13/blog170413/" itemprop="url">
+                <a class="post-title-link" href="/2017/04/13/Hexo搭建Blog教程/" itemprop="url">
                   GitHub+Hexo+Intellij = Your Blog
                 </a>
               
@@ -510,7 +660,7 @@
 <p>本文只是介绍本人电脑环境下所经历的安装过程，如果遇到其他问题，记住，有<a href="http://www.baidu.com">百度</a>和<a href="http://www.google.com">Google</a>！多动手，少伸手！</p>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2017/04/13/blog170413/#more" rel="contents">
+            <a class="btn" href="/2017/04/13/Hexo搭建Blog教程/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -592,7 +742,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-count">3</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
