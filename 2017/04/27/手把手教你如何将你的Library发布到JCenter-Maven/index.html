@@ -95,13 +95,13 @@
 <meta property="og:site_name" content="MichelPro's Blog">
 <meta property="og:description" content="前言在依赖别人的项目的时候，是不是特别羡慕一行就可以依赖别人的库？没事，你的库也可以的。这次Michel就手把手教你如何将你的Library发布到JCenter上。 在动手之前，我们要明确一些概念，这里以compile ‘com.squareup.picasso:picasso:2.5.2’为例： 其中：com.squareup.picasso为GROUP_ID，picasso为ARTIFACT_">
 <meta property="og:image" content="https://raw.githubusercontent.com/MichelPro/MichelPro.github.io/master/images/add_repository.png">
-<meta property="og:image" content="http://yoursite.com/2017/04/27/images/create_repository.png">
-<meta property="og:image" content="http://yoursite.com/2017/04/27/images/add_package.png">
-<meta property="og:image" content="http://yoursite.com/2017/04/27/images/create_new_package_1.png">
-<meta property="og:image" content="http://yoursite.com/2017/04/27/images/create_new_package_2.png">
-<meta property="og:image" content="http://yoursite.com/2017/04/27/images/edit_package.png">
-<meta property="og:image" content="http://yoursite.com/2017/04/27/images/package_detail.png">
-<meta property="og:updated_time" content="2017-04-28T09:06:15.121Z">
+<meta property="og:image" content="https://raw.githubusercontent.com/MichelPro/MichelPro.github.io/master/images/create_repository.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/MichelPro/MichelPro.github.io/master/images/add_package.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/MichelPro/MichelPro.github.io/master/images/create_new_package_1.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/MichelPro/MichelPro.github.io/master/images/create_new_package_2.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/MichelPro/MichelPro.github.io/master/images/edit_package.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/MichelPro/MichelPro.github.io/master/images/package_detail.png">
+<meta property="og:updated_time" content="2017-04-28T09:08:13.146Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="手把手教你如何将你的Library发布到JCenter">
 <meta name="twitter:description" content="前言在依赖别人的项目的时候，是不是特别羡慕一行就可以依赖别人的库？没事，你的库也可以的。这次Michel就手把手教你如何将你的Library发布到JCenter上。 在动手之前，我们要明确一些概念，这里以compile ‘com.squareup.picasso:picasso:2.5.2’为例： 其中：com.squareup.picasso为GROUP_ID，picasso为ARTIFACT_">
@@ -370,14 +370,14 @@
 <li><p>注册成功后，点击Add New Repository，添加你的maven库。</p>
 <p> <img src="https://raw.githubusercontent.com/MichelPro/MichelPro.github.io/master/images/add_repository.png" alt="add_repository"></p>
 <p> 在创建的时候要注意：name和type都要填写/选择maven，否则后期通过cmd上传的时候会报<code>Could not create package HTTP/1.1 401 Unauthorized [message:This resource requires authentication]</code>这样的错误。</p>
-<p> <img src="../images/create_repository.png" alt="create_repository"></p>
+<p> <img src="https://raw.githubusercontent.com/MichelPro/MichelPro.github.io/master/images/create_repository.png" alt="create_repository"></p>
 </li>
 <li><p>创建maven库成功之后，点击进入这个maven库，选择Add New Package</p>
-<p> <img src="../images/add_package.png" alt="add_package"></p>
+<p> <img src="https://raw.githubusercontent.com/MichelPro/MichelPro.github.io/master/images/add_package.png" alt="add_package"></p>
 </li>
 <li><p>填写必要的信息：</p>
-<p> <img src="../images/create_new_package_1.png" alt="create_new_package_1"></p>
-<p> <img src="../images/create_new_package_2.png" alt="create_new_package_2"></p>
+<p> <img src="https://raw.githubusercontent.com/MichelPro/MichelPro.github.io/master/images/create_new_package_1.png" alt="create_new_package_1"></p>
+<p> <img src="https://raw.githubusercontent.com/MichelPro/MichelPro.github.io/master/images/create_new_package_2.png" alt="create_new_package_2"></p>
 <p> 这里要注意，虽然如何命名没有什么限定，但是也有一定的规范。所有的字母应该是小写，单词之间用“-”分割，比如“android-lib”。</p>
 <p> 这里的name建议使用你未来的ARTIFACT_ID。</p>
 <p> Licenses是协议，要选择Apache-2.0。</p>
@@ -385,8 +385,8 @@
 <p> 所有的填写完成后，就可以选择create package。</p>
 </li>
 <li><p>创建完成后，会直接进入edit界面，这时候我们选择我们的package名字，就进入package详情。</p>
-<p><img src="../images/edit_package.png" alt="edit_package"></p>
-<p><img src="../images/package_detail.png" alt="package_detail"></p>
+<p><img src="https://raw.githubusercontent.com/MichelPro/MichelPro.github.io/master/images/edit_package.png" alt="edit_package"></p>
+<p><img src="https://raw.githubusercontent.com/MichelPro/MichelPro.github.io/master/images/package_detail.png" alt="package_detail"></p>
 <p>恭喜，现在在bintray上已经有了自己的库了!目前来看，bintray的一些基本配置完成了。</p>
 <p>另：如果你想将自己的库上传到maven central，请自行查找教程。</p>
 </li>
