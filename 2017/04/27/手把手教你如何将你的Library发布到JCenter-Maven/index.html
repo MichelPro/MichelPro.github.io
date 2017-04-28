@@ -87,17 +87,20 @@
 
 
 
-<meta name="description" content="前言是不是一直在用别人的库？想自己发一个也共享给别人？是不是也想一行代码直接依赖？">
+<meta name="description" content="前言在依赖别人的项目的时候，是不是特别羡慕一行就可以依赖别人的库？没事，你的库也可以的。这次Michel就手把手教你如何将你的Library发布到JCenter上。 在动手之前，我们要明确一些概念，这里以compile ‘com.squareup.picasso:picasso:2.5.2’为例： 其中：com.squareup.picasso为GROUP_ID，picasso为ARTIFACT_">
 <meta name="keywords" content="Java">
 <meta property="og:type" content="article">
-<meta property="og:title" content="手把手教你如何将你的Library发布到JCenter/Maven">
+<meta property="og:title" content="手把手教你如何将你的Library发布到JCenter">
 <meta property="og:url" content="http://yoursite.com/2017/04/27/手把手教你如何将你的Library发布到JCenter-Maven/index.html">
 <meta property="og:site_name" content="MichelPro's Blog">
-<meta property="og:description" content="前言是不是一直在用别人的库？想自己发一个也共享给别人？是不是也想一行代码直接依赖？">
-<meta property="og:updated_time" content="2017-04-27T07:28:50.739Z">
+<meta property="og:description" content="前言在依赖别人的项目的时候，是不是特别羡慕一行就可以依赖别人的库？没事，你的库也可以的。这次Michel就手把手教你如何将你的Library发布到JCenter上。 在动手之前，我们要明确一些概念，这里以compile ‘com.squareup.picasso:picasso:2.5.2’为例： 其中：com.squareup.picasso为GROUP_ID，picasso为ARTIFACT_">
+<meta property="og:image" content="http://yoursite.com/2017/04/27/images/add_repository.png">
+<meta property="og:image" content="http://yoursite.com/2017/04/27/images/create_repository.png">
+<meta property="og:updated_time" content="2017-04-28T08:42:43.917Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="手把手教你如何将你的Library发布到JCenter/Maven">
-<meta name="twitter:description" content="前言是不是一直在用别人的库？想自己发一个也共享给别人？是不是也想一行代码直接依赖？">
+<meta name="twitter:title" content="手把手教你如何将你的Library发布到JCenter">
+<meta name="twitter:description" content="前言在依赖别人的项目的时候，是不是特别羡慕一行就可以依赖别人的库？没事，你的库也可以的。这次Michel就手把手教你如何将你的Library发布到JCenter上。 在动手之前，我们要明确一些概念，这里以compile ‘com.squareup.picasso:picasso:2.5.2’为例： 其中：com.squareup.picasso为GROUP_ID，picasso为ARTIFACT_">
+<meta name="twitter:image" content="http://yoursite.com/2017/04/27/images/add_repository.png">
 
 
 
@@ -131,7 +134,7 @@
 
 
 
-  <title> 手把手教你如何将你的Library发布到JCenter/Maven | MichelPro's Blog </title>
+  <title> 手把手教你如何将你的Library发布到JCenter | MichelPro's Blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -281,7 +284,7 @@
             
             
               
-                手把手教你如何将你的Library发布到JCenter/Maven
+                手把手教你如何将你的Library发布到JCenter
               
             
           </h1>
@@ -354,7 +357,17 @@
       
 
       
-        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>是不是一直在用别人的库？想自己发一个也共享给别人？是不是也想一行代码直接依赖？<br><a id="more"></a></p>
+        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>在依赖别人的项目的时候，是不是特别羡慕一行就可以依赖别人的库？没事，你的库也可以的。这次Michel就手把手教你如何将你的Library发布到JCenter上。</p>
+<p>在动手之前，我们要明确一些概念，这里以compile ‘com.squareup.picasso:picasso:2.5.2’为例：</p>
+<p>其中：<code>com.squareup.picasso</code>为GROUP_ID，<code>picasso</code>为ARTIFACT_ID，<code>2.5.2</code>为 VERSION_ID。知道了这三者，对于之后创建共享库的时候就有了一定的计划性了。<br><a id="more"></a></p>
+<h1 id="动手"><a href="#动手" class="headerlink" title="动手"></a>动手</h1><h2 id="第一部分：在bintray上创建自己的package"><a href="#第一部分：在bintray上创建自己的package" class="headerlink" title="第一部分：在bintray上创建自己的package"></a>第一部分：在bintray上创建自己的package</h2><ol>
+<li>在<a href="https://bintray.com/" target="_blank" rel="external">https://bintray.com/</a> 上注册账号，注册过程不再赘述。很简单。</li>
+<li><p>注册成功后，点击Add New Repository，添加你的maven库。</p>
+<p>  <img src="../images/add_repository.png" alt="Alt text"></p>
+<p> 在创建的时候要注意：name和type都要填写/选择maven，否则后期通过cmd上传的时候会报<code>Could not create package HTTP/1.1 401 Unauthorized [message:This resource requires authentication]</code>这样的错误。</p>
+<p>  <img src="../images/create_repository.png" alt="Alt text"></p>
+</li>
+</ol>
 
       
     </div>
@@ -534,7 +547,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#动手"><span class="nav-number">2.</span> <span class="nav-text">动手</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#第一部分：在bintray上创建自己的package"><span class="nav-number">2.1.</span> <span class="nav-text">第一部分：在bintray上创建自己的package</span></a></li></ol></li></ol></div>
             
 
           </div>
