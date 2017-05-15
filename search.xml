@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  <entry>
+    <title><![CDATA[手把手教你如何将你的Library发布到JCenter]]></title>
+    <url>%2F2017%2F04%2F27%2F%E6%89%8B%E6%8A%8A%E6%89%8B%E6%95%99%E4%BD%A0%E5%A6%82%E4%BD%95%E5%B0%86%E4%BD%A0%E7%9A%84Library%E5%8F%91%E5%B8%83%E5%88%B0JCenter-Maven%2F</url>
+    <content type="text"><![CDATA[前言在依赖别人的项目的时候，是不是特别羡慕一行就可以依赖别人的库？没事，你的库也可以的。这次Michel就手把手教你如何将你的Library发布到JCenter上。 在动手之前，我们要明确一些概念，这里以compile &#39;com.squareup.picasso:picasso:2.5.2&#39;为例： 其中：com.squareup.picasso为GROUP_ID，picasso为ARTIFACT_ID，2.5.2为 VERSION_ID。知道了这三者，对于之后创建共享库的时候就有了一定的计划性了。 动手第一部分：在bintray上创建自己的package 在https://bintray.com/ 上注册账号，注册过程不再赘述。很简单。 注册成功后，点击Add New Repository，添加你的maven库。 在创建的时候要注意：name和type都要填写/选择maven，否则后期通过cmd上传的时候会报Could not create package HTTP/1.1 401 Unauthorized [message:This resource requires authentication]这样的错误。 创建maven库成功之后，点击进入这个maven库，选择Add New Package 填写必要的信息： 这里要注意，虽然如何命名没有什么限定，但是也有一定的规范。所有的字母应该是小写，单词之间用“-”分割，比如“android-lib”。 这里的name建议使用你未来的ARTIFACT_ID。 Licenses是协议，要选择Apache-2.0。 Tags没有什么要求，接下来的Website、Issues tracker和Version control就是你这个库的GitHub地址、Issues和版本控制。 所有的填写完成后，就可以选择create package。 创建完成后，会直接进入edit界面，这时候我们选择我们的package名字，就进入package详情。 恭喜，现在在bintray上已经有了自己的库了! 目前来看，bintray的一些基本配置完成了。接下来就要准备我们的library了。 第二部分：准备一个Android Studio项目 创建library 一般来讲，我们需要准备两个module，一个就是你的library，另一个就是展示如何使用你的library。 如何新建library，这里就不在赘述，只是放一个创建完成的截图：这里要注意，你的library module的名字要和你的package的名字保持一致，否则后期上传到bintray的时候，会出现两个不同的文件。 修改project中的build.gradle： 在buildscript下的dependencies下，添加如下两句： 12classpath 'com.jfrog.bintray.gradle:gradle-bintray-plugin:1.6'classpath 'com.github.dcendents:android-maven-gradle-plugin:1.4.1' 创建的时候默认会有个gradle，如果你的gradle版本低于1.1.2，请将其修改为这之上。 接下来我们将修改local.properties。 在里面定义api key的用户名以及被创建key的密码，用于bintray的认证。之所以要把这些东西放在这个文件是因为这些信息时比较敏感的，不应该到处分享，包括版本控制里面。幸运的是在创建项目的时候local.properties文件就已经被添加到.gitignore了。因此这些敏感数据不会被误传到git服务器。 下面是要添加的代码： 12bintray.user=xxxxxxxbintray.apikey=xxxxxxxxxxxxxxxxxxx 然后修改Library的build.gradle: 1234567891011121314151617181920212223242526272829apply plugin: 'com.android.library'ext &#123; bintrayRepo = 'maven' // 这里默认就好 bintrayName = 'android-lib' // 这里就写你的library也就是packageName最好 publishedGroupId = 'com.michel' // 这里是你的GroupId libraryName = 'AndroidLib' artifact = 'android-lib' // 此处随意 libraryDescription = 'Android Library' // 这里是你要共享库的GitHub地址 siteUrl = 'https://github.com/MichelPro/AndroidLib' gitUrl = 'https://github.com/MichelPro/AndroidLib.git' // 这就是library的版本号，每次发布新版的时候要修改版本号 libraryVersion = '0.0.3' // 这里随意，个人信息 developerId = 'michel' developerName = 'MichelPro' developerEmail = 'MichelProLei@gmail.com' // 这就是协议内容了，不要修改 licenseName = 'The Apache Software License, Version 2.0' licenseUrl = 'http://www.apache.org/licenses/LICENSE-2.0.txt' allLicenses = ["Apache-2.0"]&#125; 为了方便管理，上面其实是配置列表，我们通过创建另外两个gradle去设置具体实现。 这里提供两个方法，如果你们嫌麻烦，直接可以在自己的library的build.gradle最后添加： 12apply from: 'https://raw.githubusercontent.com/MichelPro/AndroidLib/master/install.gradle'apply from: 'https://raw.githubusercontent.com/MichelPro/AndroidLib/master/java-bintray.gradle' 添加完成后sync一下就可以了。这一步完成~ 对于一些想把什么都握在自己手中的人来说，也可以选择依赖本地的文件（毕竟我也不知道什么时候我就跑路了~） 在Project下分别创建install.gradle和java-bintray.gradle这两个gradle文件， install.gradle文件内容： 123456789101112131415161718192021222324252627282930313233343536373839404142apply plugin: 'com.github.dcendents.android-maven'group = publishedGroupId // Maven Group ID for the artifactinstall &#123; repositories.mavenInstaller &#123; // This generates POM.xml with proper parameters pom &#123; project &#123; packaging 'aar' groupId publishedGroupId artifactId artifact // Add your description here name libraryName description libraryDescription url siteUrl // Set your license licenses &#123; license &#123; name licenseName url licenseUrl &#125; &#125; developers &#123; developer &#123; id developerId name developerName email developerEmail &#125; &#125; scm &#123; connection gitUrl developerConnection gitUrl url siteUrl &#125; &#125; &#125; &#125;&#125; java-bintray.gradle文件内容： 1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575859apply plugin: 'com.jfrog.bintray'version = libraryVersionif (project.hasProperty("android")) &#123; // Android libraries task sourcesJar(type: Jar) &#123; classifier = 'sources' from android.sourceSets.main.java.srcDirs &#125; task javadoc(type: Javadoc) &#123; source = android.sourceSets.main.java.srcDirs classpath += project.files(android.getBootClasspath().join(File.pathSeparator)) &#125;&#125; else &#123; // Java libraries task sourcesJar(type: Jar, dependsOn: classes) &#123; classifier = 'sources' from sourceSets.main.allSource &#125;&#125;task javadocJar(type: Jar, dependsOn: javadoc) &#123; classifier = 'javadoc' from javadoc.destinationDir&#125;artifacts &#123; archives javadocJar archives sourcesJar&#125;// BintrayProperties properties = new Properties()properties.load(project.rootProject.file('local.properties').newDataInputStream())bintray &#123; user = properties.getProperty("bintray.user") key = properties.getProperty("bintray.apikey") configurations = ['archives'] pkg &#123; repo = bintrayRepo name = bintrayName desc = libraryDescription websiteUrl = siteUrl vcsUrl = gitUrl licenses = allLicenses publish = true publicDownloadNumbers = true version &#123; desc = libraryDescription gpg &#123; sign = true //Determines whether to GPG sign the files. The default is false passphrase = properties.getProperty("bintray.gpg.password") //Optional. The passphrase for GPG signing' &#125; &#125; &#125;&#125; 然后再在library的build.gradle文件最后进行依赖： 12apply from: '../install.gradle'apply from: '../java-bintray.gradle' 简单吧！就这样！你本地库的一些操作暂且告一段落~ 第三部分：把library上传到你的bintray空间 打开你的Terminal，检查代码的正确性，以及编译library文件（aar，pom等等），输入下面的命令： 如果没有什么问题，会显示： 1BUILD SUCCESSFUL 现在我们已经成功一半了。下一步是上传编译的文件到bintray，使用如下的命令： 1gradlew bintrayUpload 如果显示如下你就大喊一声eureka吧！ 1SUCCESSFUL 在bintray的网页上检查一下你的package。你会发现在版本区域的变化 是不是已经有了最新版？就是你之前写的libraryVersion？！别激动让我们看一下我们的files选项卡！ 如果选择进去除了版本文件夹之外，只有一个文件夹，并且最后的界面javadoc和sources等文件一个不少，那就说明这一步没毛病！ 第四部分：同步bintray用户仓库到jcenter此时，我们打开我们的package的详情页，选择Add to JCenter 什么都不需要输入（如果你想写点啥也行），选择send，接下来就是静等2~3个小时（也许会更长），你的邮箱里就会发现有了回复！ 审核通过后，之前的空白处就会变成这样： 从此之后，任何开发者都可以使用jcenter() repository 外加一行gradle脚本来使用我们的library了！ 想检查一下自己的library在jcenter上是否存在？你可以直接访问http://jcenter.bintray.com ，然后进入和你library的group id 以及artifact id匹配的目录。在本例中就是com -&gt; michel -&gt; android-lib -&gt; 0.0.7。 请注意链接到jcenter是一个只需做一次的操作。如果你对你的package做了任何修改，比如上传了一个新版本的binary，删除了旧版本的binary等等，这些改变也会影响到jcenter。不过毕竟你自己的仓库和jcenter在不同的地方，所以需要等待2－3分钟让jcenter同步这些修改。 同时注意，如果你决定删除整个package，放在jcenter仓库上的library不会被删除。它们会像僵尸一样的存在，没有人再能删除它了。因此我建议，如果你想删除整个package，请在移除package之前先在网页上删除每一个版本。 后记在第一次上传的时候也是经历过很多坑，但是耐下性子，多百度和Google，很多问题，其实都不是问题。 这个教程也是根据前人的经验写的，只是比别人的教程多了一些细节而已，毕竟经过了一些的综合，我想，还是能满足大部分人的需求的。 只是这个文章只是说了如何发布到JCenter上，关于上传到Maven的方法我就没有写在这里了，如果你有这方面的需求，还是自己去找一些资料吧。]]></content>
+      <categories>
+        <category>教程</category>
+      </categories>
+      <tags>
+        <tag>Java</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Kotlin项目发布到Maven/JCenter库]]></title>
+    <url>%2F2017%2F04%2F26%2FKotlin%E4%B8%8A%E4%BC%A0%E5%88%B0Jcenter%2F</url>
+    <content type="text"><![CDATA[本文前提是已经有了自己的Maven/JCenter库，对于如何将自己的库发布到Maven/JCenter，本文在此不再赘述。 满心欢喜，发布失败之前说过，最近在研究Kotlin，于是将自己的库部分代码换成Kotlin语言，没想到在发布到bintray的时候，控制台竟然报错： 1javadoc: 错误 -非法的程序包名称：“....kt” 这时候有点无奈啊，javadoc竟然报错，还不能删，………………，否则jcenter审核不通过……………… 百度不行，Google救场Kejin很好的解释了如何解决问题。未完待续。]]></content>
+      <categories>
+        <category>技术博文</category>
+      </categories>
+      <tags>
+        <tag>kotlin</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[本以为是data class 的锅，没想到是FastJson的锅]]></title>
+    <url>%2F2017%2F03%2F14%2FKotlin%E4%B9%8BData%20class%E7%9A%84%E5%9D%91%2F</url>
+    <content type="text"><![CDATA[正文最近迷上了Kotlin，正在逐步将项目中的Java代码部分替代成Kotlin实现，但是一个个删除重写岂不是太麻烦？还好AndroidStudio有这么一个工具：Convert Java File to Kotlin File，通过名字我们就知道，这是将Java文件一键转换成Kotlin文件的工具。 初步转换按捺住激动的心情，从项目中的JavaBean入手开始转起！咻！~~ 但是发现转换过来的代码一点都不优雅：1234class User&#123; var id: String? = null var name: String? = null&#125; 有默认值的data class这样子算什么嘛！一点KotlinStyle都没有！既然Kotlin中有data class这个东东，我们怎么可以放过它？来！我们删删删！改改改！于是乎……1234data class User( var id: String? = null var name: String? = null) 嗯，由于是在项目上动刀，当然要run一下啦！发现这样写并没有什么不妥。看起来还行！是不是！？ 正常data class的写法但是我感觉并不是这样啊！我强迫症啊！这样写你可以让参数是null 啊！而且还必须要赋初值！！看起来简直丑到爆！于是我就手贱删掉了！它就变成这个样子：1234data class User( var id: String, var name: String) 这样才好看？是不是？（鬼知道我什么审美）。然后！让我们红尘作伴，run的潇潇洒洒！WTF？！崩了！1com.alibaba.fastjson.JSONException: default constructor not found 报错很直白嘛！就是告诉你没有默认的构造函数！这不就X了狗了么（放开狗！让你来！） 注：其实在这里呢，你可以直接将FastJson换成Gson了。 noArg（这里其实是解决反射获取无参构造失败的解决方案）据说是少一个noArg的东西，按照教程，我们首先在自己Project的gradle添加如下配置：12345678buildscript &#123;... dependencies &#123; ... classpath "org.jetbrains.kotlin:kotlin-noarg:$kotlin_version" ... &#125;&#125; 然后我们去自己的module里创建一个注解类（Kotlin的），放在哪、命名都随你，反正我是命名为PoKo1annotation class PoKo 紧接着我们回到之前的gradle文件中，继续添加配置：12345apply plugin: "kotlin-noarg" noArg &#123; annotation("com.your.Annotation") // 注意！这里是你的注解的全路径！也就是我的Poko的全路径&#125; 最后我们返回到最初的data class，在前面加上你的注解！1234@PoKo data class User( var id: String, var name: String) 这次的我信心满满！没毛病了吧！Run！ 打脸事实告诉我！不要轻易立Flag！ 同样的Error又来了一遍！WTF？我都快怀疑人生了好吧！后来才发现原来是FastJson的锅！FastJson并不是通过反射去获取无参构造。这个noArg的解决方案主要是针对orm和spring那种通过反射去获取无参构造失败的解决方案。 至于json解析？还是换成Google的亲儿子Gson吧。而且使用Gson的话，你也不必去使用这个注解。因为Gson比较流氓。他在解析对象的时候，先去找无参构造，找不到就用 Unsafe.allocateInstance 来创建对象，主要这个创建方法非常的底层，你可以简单的理解为只为实例化出来的 Java 对象开辟了对象存续需要的空间，而对应地它的成员没有一个会正常初始化。 而我？我知道我要把项目中的FastJson换成Gson去！再也不相信阿里爸爸了！ 好了，如果你用Gson，你什么都不用做。如果你用FastJson，那你就赋初值吧！如果嫌麻烦？学我！全面换成Gson！ 啰啰嗦嗦终于写完了，废话比较多！随意看看吧。 结语爬坑的过程中主要参照了Benny的博客才解决，如果想对这个问题有更深入的理解，可以直接访问Benny的博客。我也是因为Benny才入的Kotlin的坑！希望Kotlin能越来越火！]]></content>
+      <categories>
+        <category>技术博文</category>
+      </categories>
+      <tags>
+        <tag>kotlin</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[重新设计Android目录结构]]></title>
+    <url>%2F2017%2F01%2F27%2F%E9%87%8D%E6%96%B0%E8%AE%BE%E8%AE%A1Android%E7%9B%AE%E5%BD%95%E7%BB%93%E6%9E%84%2F</url>
+    <content type="text"><![CDATA[丑到爆的Android目录想必大家都看到过这样的包目录：（待重写）123456com.michel.xxxx |--activity |--fragment |--utils |--adapter ………… 这样的结构不是不好，最起码前期省心不是，而且也算是基本做到了分门别类的放置各种Java类。但是这样最起码不利于根据业务功能快速的定位某个类，就算是这些类都是你自己写的，但是谁敢保证一年后再去找还能快速找到呢？ 根据业务模块分包？（待定）]]></content>
+      <categories>
+        <category>技术博文</category>
+      </categories>
+      <tags>
+        <tag>Re</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[GitHub+Hexo+Intellij = Your Blog]]></title>
+    <url>%2F2016%2F09%2F26%2FHexo%E6%90%AD%E5%BB%BABlog%E6%95%99%E7%A8%8B%2F</url>
+    <content type="text"><![CDATA[啰啰嗦嗦最初没有写博客的欲望，只是偶尔记记笔记，但是鉴于笔记只是自己能看到，或者主动分享，不利于同行之间交流，所以开始接触博客。 刚开始只是借助：CSDN、简书等第三方网站偶尔写点东西，后来无意中发现大神很多都在用Hexo来写博客，至于为什么用Hexo，我只是听说好用而已。就酱。 作为一个Hexo博客的初级使用者，本人很大程度的依赖Baidu和Google才将博客搭建成功。特别是Chillax的文章，对于博客的前期搭建很有帮助。 本文只是介绍本人电脑环境下所经历的安装过程，如果遇到其他问题，记住，有百度和Google！多动手，少伸手！ 准备工作 关于系统环境、软件安装以及账号注册的过程这里就不再多做赘述，请自行研究。 系统 Windows10(64) 软件 git node.js IntelliJ 账号准备 GitHub账号 开始。。。未完待续。有时间再写。]]></content>
+      <categories>
+        <category>教程</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
+      </tags>
+  </entry>
+</search>
