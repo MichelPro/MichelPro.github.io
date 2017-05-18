@@ -3,7 +3,7 @@
   <entry>
     <title><![CDATA[Kotlin成为Android开发官方语言]]></title>
     <url>%2F2017%2F05%2F18%2FKotlin%E6%88%90%E4%B8%BAAndroid%E5%BC%80%E5%8F%91%E5%AE%98%E6%96%B9%E8%AF%AD%E8%A8%80%2F</url>
-    <content type="text"><![CDATA[一夜之间，Kotlin大火 早上一觉醒来，发现Kotlin群里讨论的热火朝天，打开一看发现来了很多新人。原来就在2017年5月18日 Google I/O 2017开发者大会上发生了这么一件大事： 谷歌宣布 Kotlin 编程语言成为 Android 编程的首选语言。谷歌称还将与 JetBrains 公司合作，为 Kotlin 设立一个非盈利基金会。JetBrains 在 2010 年首次推出 Kotlin 编程语言，并在次年将其开源。下一版的 Android Studio（3.0）也将支持 Kotlin。 作为一个野生的菜鸟级Kotlin开发人员而言，总有种媳妇熬成婆的感觉！Kotlin终于被Google承认了！以后再也不用战战兢兢的使用Kotlin了！项目中也可以大范围使用Kotlin了！这难道不激动么？就连Kotlin的官方网站首页介绍也大方的说自己是“Android官方语言”了 那么，什么是Kotlin呢？]]></content>
+    <content type="text"><![CDATA[一夜之间，Kotlin大火 早上一觉醒来，发现Kotlin群里讨论的热火朝天，打开一看发现来了很多新人。原来就在2017年5月18日 Google I/O 2017开发者大会上发生了这么一件大事： 谷歌宣布 Kotlin 编程语言成为 Android 编程的首选语言。谷歌称还将与 JetBrains 公司合作，为 Kotlin 设立一个非盈利基金会。JetBrains 在 2010 年首次推出 Kotlin 编程语言，并在次年将其开源。下一版的 Android Studio（3.0）也将支持 Kotlin。 作为一个野生的菜鸟级Kotlin开发人员而言，总有种媳妇熬成婆的感觉！Kotlin终于被Google承认了！以后再也不用战战兢兢的使用Kotlin了！项目中也可以大范围使用Kotlin了！这难道不激动么？就连Kotlin的官方网站首页介绍也大方的说自己是“Android官方语言”了 那么，什么是Kotlin呢？ 作为还是一个菜鸟级的Kotlin学习人员，实在不敢在各位面前对Kotlin大谈特谈。了解Kotlin最好还是去Kotlin官方网站去看一下最为科学。另外，Google也为Kotlin开辟了专门的版块，有意思的是，Google在这个页面附图容易让人误解，到底，是Kotlin抱住Android呢，还是Android抱住Kotlin呢？滑稽脸~ Kotlin有啥好处？忘记当时为啥接触Kotlin了，只记得当时最吸引我的有两点： Kotlin不需要写分号 Kotlin能大幅度减少空指针异常 就因为这两点，纯真的我一不小心就入了Kotlin的坑，再也没爬出来过！ 什么？这两点不算吸引人？要知道，我这里说的，只是Kotlin最明显的两个特征而已，你可以尝试去了解了解Kotlin，我想，你也会疯狂的爱上并使用Kotlin的！ 这个博文水到这里结束！我只是耐不住激动的心情来发个博文抒发一下Kotlin转正的激动的心情而已~ 我要继续写Kotlin去了 推荐阅读Benny应该是我的Kotlin启蒙老师，也算是国内最早了解Kotlin的人之一吧，既然聊到了Kotlin，我也忍不住把他的博客地址放在最后推荐给想学Kotlin或者对Kotlin有那么一丝兴趣的人。]]></content>
       <categories>
         <category>新闻资讯</category>
       </categories>
