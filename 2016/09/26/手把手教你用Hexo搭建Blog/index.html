@@ -87,17 +87,30 @@
 
 
 
-<meta name="description" content="啰啰嗦嗦最初没有写博客的欲望，只是偶尔记记笔记，但是鉴于笔记只是自己能看到，或者主动分享，不利于同行之间交流，所以开始接触博客。 刚开始只是借助：CSDN、简书等第三方网站偶尔写点东西，后来无意中发现大神很多都在用Hexo来写博客，至于为什么用Hexo，我只是听说好用而已。就酱。 作为一个Hexo博客的初级使用者，本人很大程度的依赖Baidu和Google才将博客搭建成功。特别是Chillax的文">
+<meta name="description" content="出问题多问百度和Google，本教程是针对于windows用户所写。  搭建本地环境准备工具工欲善其事必先利其器，我们首先要准备好两款软件node.js和git  这里安装配置暂时略过。 创建本地文件安装hexo：1$ npm install hexo-cli -g 如果遇到了以下的错误：1ERROR Deployer not found : github 则直接运行以下命令，也可以直接运行以下">
 <meta name="keywords" content="Hexo">
 <meta property="og:type" content="article">
-<meta property="og:title" content="GitHub+Hexo+Intellij = Your Blog">
-<meta property="og:url" content="http://yoursite.com/2016/09/26/Hexo搭建Blog教程/index.html">
+<meta property="og:title" content="手把手教你用Hexo搭建Blog">
+<meta property="og:url" content="http://yoursite.com/2016/09/26/手把手教你用Hexo搭建Blog/index.html">
 <meta property="og:site_name" content="MichelPro's Blog">
-<meta property="og:description" content="啰啰嗦嗦最初没有写博客的欲望，只是偶尔记记笔记，但是鉴于笔记只是自己能看到，或者主动分享，不利于同行之间交流，所以开始接触博客。 刚开始只是借助：CSDN、简书等第三方网站偶尔写点东西，后来无意中发现大神很多都在用Hexo来写博客，至于为什么用Hexo，我只是听说好用而已。就酱。 作为一个Hexo博客的初级使用者，本人很大程度的依赖Baidu和Google才将博客搭建成功。特别是Chillax的文">
-<meta property="og:updated_time" content="2017-04-27T07:28:52.463Z">
+<meta property="og:description" content="出问题多问百度和Google，本教程是针对于windows用户所写。  搭建本地环境准备工具工欲善其事必先利其器，我们首先要准备好两款软件node.js和git  这里安装配置暂时略过。 创建本地文件安装hexo：1$ npm install hexo-cli -g 如果遇到了以下的错误：1ERROR Deployer not found : github 则直接运行以下命令，也可以直接运行以下">
+<meta property="og:image" content="https://raw.githubusercontent.com/MichelPro/MichelPro.github.io/master/images/git_bash_here.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/MichelPro/MichelPro.github.io/master/images/github_new_repository.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/MichelPro/MichelPro.github.io/master/images/ssh.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/MichelPro/MichelPro.github.io/master/images/github_add_ssh_key.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/MichelPro/MichelPro.github.io/master/images/IntelliJ.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/MichelPro/MichelPro.github.io/master/images/IntelliJ_setting.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/MichelPro/MichelPro.github.io/master/images/IntelliJ_setting_terminal.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/MichelPro/MichelPro.github.io/master/images/IntelliJ_terminal.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/MichelPro/MichelPro.github.io/master/images/IntelliJ_setting_plugins.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/MichelPro/MichelPro.github.io/master/images/tencent_yun_manager.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/MichelPro/MichelPro.github.io/master/images/tencent_yun_dns.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/MichelPro/MichelPro.github.io/master/images/hexo_cname.png">
+<meta property="og:updated_time" content="2017-05-19T09:05:11.369Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="GitHub+Hexo+Intellij = Your Blog">
-<meta name="twitter:description" content="啰啰嗦嗦最初没有写博客的欲望，只是偶尔记记笔记，但是鉴于笔记只是自己能看到，或者主动分享，不利于同行之间交流，所以开始接触博客。 刚开始只是借助：CSDN、简书等第三方网站偶尔写点东西，后来无意中发现大神很多都在用Hexo来写博客，至于为什么用Hexo，我只是听说好用而已。就酱。 作为一个Hexo博客的初级使用者，本人很大程度的依赖Baidu和Google才将博客搭建成功。特别是Chillax的文">
+<meta name="twitter:title" content="手把手教你用Hexo搭建Blog">
+<meta name="twitter:description" content="出问题多问百度和Google，本教程是针对于windows用户所写。  搭建本地环境准备工具工欲善其事必先利其器，我们首先要准备好两款软件node.js和git  这里安装配置暂时略过。 创建本地文件安装hexo：1$ npm install hexo-cli -g 如果遇到了以下的错误：1ERROR Deployer not found : github 则直接运行以下命令，也可以直接运行以下">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/MichelPro/MichelPro.github.io/master/images/git_bash_here.png">
 
 
 
@@ -125,13 +138,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2016/09/26/Hexo搭建Blog教程/"/>
+  <link rel="canonical" href="http://yoursite.com/2016/09/26/手把手教你用Hexo搭建Blog/"/>
 
 
 
 
 
-  <title> GitHub+Hexo+Intellij = Your Blog | MichelPro's Blog </title>
+  <title> 手把手教你用Hexo搭建Blog | MichelPro's Blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -304,7 +317,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/09/26/Hexo搭建Blog教程/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/09/26/手把手教你用Hexo搭建Blog/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="MichelPro">
@@ -325,7 +338,7 @@
             
             
               
-                GitHub+Hexo+Intellij = Your Blog
+                手把手教你用Hexo搭建Blog
               
             
           </h1>
@@ -381,7 +394,7 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a class="cloud-tie-join-count" href="/2016/09/26/Hexo搭建Blog教程/#comments" itemprop="discussionUrl">
+                <a class="cloud-tie-join-count" href="/2016/09/26/手把手教你用Hexo搭建Blog/#comments" itemprop="discussionUrl">
                   <span class="post-comments-count join-count" itemprop="commentCount"></span>
                 </a>
               </span>
@@ -390,7 +403,7 @@
 
           
           
-             <span id="/2016/09/26/Hexo搭建Blog教程/" class="leancloud_visitors" data-flag-title="GitHub+Hexo+Intellij = Your Blog">
+             <span id="/2016/09/26/手把手教你用Hexo搭建Blog/" class="leancloud_visitors" data-flag-title="手把手教你用Hexo搭建Blog">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -419,31 +432,79 @@
       
 
       
-        <h2 id="啰啰嗦嗦"><a href="#啰啰嗦嗦" class="headerlink" title="啰啰嗦嗦"></a>啰啰嗦嗦</h2><p>最初没有写博客的欲望，只是偶尔记记笔记，但是鉴于笔记只是自己能看到，或者主动分享，不利于同行之间交流，所以开始接触博客。</p>
-<p>刚开始只是借助：CSDN、简书等第三方网站偶尔写点东西，后来无意中发现大神很多都在用Hexo来写博客，至于为什么用Hexo，我只是听说好用而已。就酱。</p>
-<p>作为一个Hexo博客的初级使用者，本人很大程度的依赖Baidu和Google才将博客搭建成功。特别是<a href="http://opiece.me/2015/04/09/hexo-guide/" target="_blank" rel="external">Chillax的文章</a>，对于博客的前期搭建很有帮助。</p>
-<p>本文只是介绍本人电脑环境下所经历的安装过程，如果遇到其他问题，记住，有<a href="http://www.baidu.com" target="_blank" rel="external">百度</a>和<a href="http://www.google.com" target="_blank" rel="external">Google</a>！多动手，少伸手！</p>
-<a id="more"></a>
-<h2 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h2><blockquote>
-<p>关于系统环境、软件安装以及账号注册的过程这里就不再多做赘述，请自行研究。</p>
+        <blockquote>
+<p>出问题多问<a href="http://www.baidu.com/" target="_blank" rel="external">百度</a>和<a href="https://www.google.com." target="_blank" rel="external">Google</a>，本教程是针对于windows用户所写。</p>
 </blockquote>
-<ul>
-<li>系统<ul>
-<li>Windows10(64)</li>
-</ul>
-</li>
-<li>软件<ul>
-<li>git</li>
-<li>node.js</li>
-<li>IntelliJ</li>
-</ul>
-</li>
-<li>账号准备<ul>
-<li>GitHub账号</li>
-</ul>
-</li>
-</ul>
-<h2 id="开始"><a href="#开始" class="headerlink" title="开始"></a>开始</h2><p>。。。未完待续。有时间再写。</p>
+<h1 id="搭建本地环境"><a href="#搭建本地环境" class="headerlink" title="搭建本地环境"></a>搭建本地环境</h1><h2 id="准备工具"><a href="#准备工具" class="headerlink" title="准备工具"></a>准备工具</h2><p>工欲善其事必先利其器，我们首先要准备好两款软件<a href="https://nodejs.org/en/" target="_blank" rel="external">node.js</a>和<a href="https://git-scm.com/" target="_blank" rel="external">git</a> </p>
+<p>这里安装配置暂时略过。</p>
+<h2 id="创建本地文件"><a href="#创建本地文件" class="headerlink" title="创建本地文件"></a>创建本地文件</h2><p>安装hexo：<br><figure class="highlight markdown"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ npm install hexo-cli -g</div></pre></td></tr></table></figure></p>
+<p>如果遇到了以下的错误：<br><figure class="highlight markdown"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ERROR Deployer not found : github</div></pre></td></tr></table></figure></p>
+<p>则直接运行以下命令，也可以直接运行以下命令：<br><figure class="highlight markdown"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ npm install hexo-deployer-git –save</div></pre></td></tr></table></figure></p>
+<p>找到你想存放本地博客的位置（建议直接在盘符的根目录下直接创建hexo文件夹），比如我就是在E:\hexo文件中存放我的个人博客</p>
+<p>进入这个文件夹，右键-&gt;Git Bash here</p>
+<p><img src="https://raw.githubusercontent.com/MichelPro/MichelPro.github.io/master/images/git_bash_here.png" alt="git_bash_here"></p>
+<p>然后在这里执行：<br><figure class="highlight markdown"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo init</div></pre></td></tr></table></figure></p>
+<p>这个时间可能比较长，执行过程中有warn也不用管，执行完毕之后，安装依赖包：<br><figure class="highlight markdown"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ npm install</div></pre></td></tr></table></figure></p>
+<p>安装完成后，E:\hexo 文件目录是这样的</p>
+<p>【待图】</p>
+<h2 id="本地测试"><a href="#本地测试" class="headerlink" title="本地测试"></a>本地测试</h2><p>执行完上述命令之后，其实博客已经生成。我们可以在本地预览下：<br><figure class="highlight markdown"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure></p>
+<p>然后我们用浏览器访问：<a href="http://localhost:4000/" target="_blank" rel="external">http://localhost:4000/</a> 就可以看到效果了，如图</p>
+<p>【待图】</p>
+<p>如果要停止hexo服务，在Git Bash下按<code>Ctrl + C</code>即可</p>
+<p>关于hexo的命令 解释可以直接看<a href="https://hexo.io/zh-cn/docs/commands.html" target="_blank" rel="external">官网</a> </p>
+<h2 id="自定义主题"><a href="#自定义主题" class="headerlink" title="自定义主题"></a>自定义主题</h2><p>讨厌了默认的模样？hexo也是提供主题的。<br>我们可以到</p>
+<p><a href="https://hexo.io/themes/" target="_blank" rel="external">hexo的主题网站</a></p>
+<p><a href="https://www.zhihu.com/question/24422335" target="_blank" rel="external">知乎-有哪些好看的 Hexo 主题？</a></p>
+<p><a href="https://github.com/hexojs/hexo/wiki/Themes" target="_blank" rel="external">hexo-github-theme-list</a>中找你喜欢的主题，按照教程一步步进行设置。</p>
+<p>我这里选择的是比较简洁的nexT主题。<a href="http://theme-next.iissnan.com/" target="_blank" rel="external">官网</a> 也是有集成介绍的，包括一些扩展用法，我就不多说了。</p>
+<h1 id="链接github仓库"><a href="#链接github仓库" class="headerlink" title="链接github仓库"></a>链接github仓库</h1><h2 id="注册github账号"><a href="#注册github账号" class="headerlink" title="注册github账号"></a>注册github账号</h2><p>已有github账号跳过此步。如果没有则进入<a href="https://github.com/" target="_blank" rel="external">github</a>注册，想好用户名，因为这关乎到你之后的博客地址（当然，用户名也是可以改的）</p>
+<h2 id="创建仓库-New-repository"><a href="#创建仓库-New-repository" class="headerlink" title="创建仓库-New repository"></a>创建仓库-New repository</h2><p>这里注意，在创建的时候 <code>repository name</code>的第一个前缀必须要和你的github用户名一致，我在创建的时候填写的是michelpro。后两个前缀必须是<code>github.io</code>。填写完成之后就可以选择<code>create repository</code>，创建仓库了。</p>
+<p><img src="https://raw.githubusercontent.com/MichelPro/MichelPro.github.io/master/images/github_new_repository.png" alt="github_new_repository"></p>
+<h2 id="链接本地和github"><a href="#链接本地和github" class="headerlink" title="链接本地和github"></a>链接本地和github</h2><h3 id="创建SSH秘钥，"><a href="#创建SSH秘钥，" class="headerlink" title="创建SSH秘钥，"></a>创建SSH秘钥，</h3><p>鼠标右键任意地方，打开Git Bash，输入以下命令：<br><figure class="highlight markdown"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ ssh-keygen -t rsa -C "你的github的邮箱地址"</div></pre></td></tr></table></figure></p>
+<p>然后三次回车，最后生成效果如图：</p>
+<p>【待截图】</p>
+<p>这时候，打开C:\Users\你的pc用户名.ssh就可以看到生成的私钥和公钥</p>
+<p><img src="https://raw.githubusercontent.com/MichelPro/MichelPro.github.io/master/images/ssh.png" alt="ssh"></p>
+<p>其中: </p>
+<p>id_rsa是私钥</p>
+<p>id_rsa.pub是公钥。</p>
+<p>如果生成的不是这样的文件，则删除掉重新输入命令再次执行。</p>
+<h3 id="添加SSH到github"><a href="#添加SSH到github" class="headerlink" title="添加SSH到github"></a>添加SSH到github</h3><p>用记事本的打开方式打开 id_rsa.pub 文件，全选复制全部内容，注意你可以看到文件内容是以<code>ssh-rsa</code>开头，<code>你的邮箱地址</code>结尾的。</p>
+<p>然后打开你的<a href="https://github.com/settings/keys" target="_blank" rel="external">github设置</a> ，选择<code>New SSH key</code>，添加SSH</p>
+<p><img src="https://raw.githubusercontent.com/MichelPro/MichelPro.github.io/master/images/github_add_ssh_key.png" alt="github_add_ssh_key"></p>
+<p>Title可以随便，将刚才id_rsa.pub文件中的内容复制到Key的输入框内，选择<code>Add SSH key</code>，尾巴不要有空行留着，要注意看。</p>
+<h3 id="把本地的博客同步到github上"><a href="#把本地的博客同步到github上" class="headerlink" title="把本地的博客同步到github上"></a>把本地的博客同步到github上</h3><p>如果想将本地的静态博客同步到github，我们好需要先安装相关的hexo插件：在Git Bash中输入:（如果你之前执行了该命令则不必理会）<br><figure class="highlight markdown"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ npm install hexo-deployer-git –save</div></pre></td></tr></table></figure></p>
+<p>然后编辑hexo的站点配置文件：<code>_config.yml</code></p>
+<p>对于每一个参数是什么意思，<a href="https://hexo.io/zh-cn/docs/configuration.html" target="_blank" rel="external">官网</a> 有明确的说明</p>
+<p>主要是最后一部分：<br><figure class="highlight yaml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="attr">deploy:</span></div><div class="line"><span class="attr">  type:</span> <span class="string">git</span></div><div class="line"><span class="attr">  repo:</span> <span class="string">git@github.com:MichelPro/MichelPro.github.io.git</span> <span class="string">//</span> <span class="string">这里将MichelPro换成你的github名即可</span></div><div class="line"><span class="attr">  branch:</span> <span class="string">master</span></div></pre></td></tr></table></figure></p>
+<p>编辑完成后，我们重新生成静态文件:<br><figure class="highlight markdown"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo g</div></pre></td></tr></table></figure></p>
+<p>然后生成完成之后，我们再本地预览一下:<br><figure class="highlight markdown"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo s –debug</div></pre></td></tr></table></figure></p>
+<p>预览没毛病，那么就发布到github吧:<br><figure class="highlight markdown"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo d</div></pre></td></tr></table></figure></p>
+<p>这时候进入你的github服务器地址就可以看到你之前生成的静态页了。<br>一般来讲，我们发布时只需要：<br><figure class="highlight markdown"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo d -g</div></pre></td></tr></table></figure></p>
+<p>这样的组合命令进行发布最为方便。</p>
+<h1 id="使用Intellij写博客"><a href="#使用Intellij写博客" class="headerlink" title="使用Intellij写博客"></a>使用Intellij写博客</h1><h2 id="下载安装Intellij"><a href="#下载安装Intellij" class="headerlink" title="下载安装Intellij"></a>下载安装Intellij</h2><p>作为一个Android的bug创造人员，AS是我常用的工具。而AS就是基于Intellij开发的，这里对于如何使用Intellij就不多说了，你只要知道Intellij很强大就好了</p>
+<h2 id="使用Intellij"><a href="#使用Intellij" class="headerlink" title="使用Intellij"></a>使用Intellij</h2><p>使用Intellij打开你的hexo文件夹，打开后效果如图：</p>
+<p><img src="https://raw.githubusercontent.com/MichelPro/MichelPro.github.io/master/images/IntelliJ.png" alt="IntelliJ"></p>
+<p>由于Intellij在Windows下默认的终端是<code>cmd</code>，而我们常用的是<code>Git Bash</code>，所以我们要修改Intellij的设置。</p>
+<p>打开Intellij的设置</p>
+<p><img src="https://raw.githubusercontent.com/MichelPro/MichelPro.github.io/master/images/IntelliJ_setting.png" alt="IntelliJ_setting"></p>
+<p>找到<code>Tools-&gt;Terminal</code>下的<code>Shell path</code>选项，默认是指向的你的<code>cmd.exe</code>，修改为指向你的git目录下的<code>bash.exe</code></p>
+<p><img src="https://raw.githubusercontent.com/MichelPro/MichelPro.github.io/master/images/IntelliJ_setting_terminal.png" alt="IntelliJ_setting_terminal"></p>
+<p>选择ok保存之后，这时候打开Intellij下方的<code>Terminal</code>窗口，就会变成我们熟悉的界面：</p>
+<p><img src="https://raw.githubusercontent.com/MichelPro/MichelPro.github.io/master/images/IntelliJ_terminal.png" alt="IntelliJ_terminal"></p>
+<p>以后我们就可以直接在这里进行新建、调试、发布等一系列操作了。</p>
+<p>哦，对了，记得给你的Intellij安装MarkDown插件：二选一就行</p>
+<p><img src="https://raw.githubusercontent.com/MichelPro/MichelPro.github.io/master/images/IntelliJ_setting_plugins.png" alt="IntelliJ_setting_plugins"></p>
+<h1 id="自定义域名（更新于2017年5月19日）"><a href="#自定义域名（更新于2017年5月19日）" class="headerlink" title="自定义域名（更新于2017年5月19日）"></a>自定义域名（更新于2017年5月19日）</h1><h2 id="注册购买域名"><a href="#注册购买域名" class="headerlink" title="注册购买域名"></a>注册购买域名</h2><p>国内的知名域名购买网站有阿里爸爸的<a href="https://wanwang.aliyun.com/" target="_blank" rel="external">万网</a>、腾讯爸爸的<a href="https://dnspod.qcloud.com/" target="_blank" rel="external">腾讯云</a> 等网站。你可以分别在这两个网站进行域名搜索，然后比对下哪家便宜在哪家购买~滑稽脸~</p>
+<p>域名的注册和购买就不多说了，网站会一步一步引导你往下进行的。</p>
+<h2 id="链接github地址"><a href="#链接github地址" class="headerlink" title="链接github地址"></a>链接github地址</h2><p>我是在腾讯云购买的域名，打开你的【管理中心】，进入【域名管理】，记得进行实名认证哦。然后选择“解析”</p>
+<p><img src="https://raw.githubusercontent.com/MichelPro/MichelPro.github.io/master/images/tencent_yun_manager.png" alt="tencent_yun_manager"></p>
+<p>在这里为你的域名添加解析记录，其中<code>192.30.252.153</code>和<code>192.30.252.154</code>是github官方ip地址，记录类型均为<code>A</code>，主机记录均为<code>@</code> ，线路类型选择默认就行；然后再添加一条记录类型为<code>CNAME</code>，主机记录是<code>www</code>，线路类型依然默认，但是记录值是你的github博客地址。最终如下：</p>
+<p><img src="https://raw.githubusercontent.com/MichelPro/MichelPro.github.io/master/images/tencent_yun_dns.png" alt="tencent_yun_dns"></p>
+<p>到这里还没有结束，你要去你的hexo/source文件夹下，新增一个不带任何后缀的CNAME文件，在这个文件中写入你的域名</p>
+<p><img src="https://raw.githubusercontent.com/MichelPro/MichelPro.github.io/master/images/hexo_cname.png" alt="hexo_cname"></p>
+<p>最后在控制台输入<br><figure class="highlight markdown"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo d -g</div></pre></td></tr></table></figure></p>
+<p>提交到github上，待你域名实名认证通过，你就可以通过域名访问你的博客了~再也不用输入一大串github地址了！</p>
 
       
     </div>
@@ -668,7 +729,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#啰啰嗦嗦"><span class="nav-number">1.</span> <span class="nav-text">啰啰嗦嗦</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#准备工作"><span class="nav-number">2.</span> <span class="nav-text">准备工作</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#开始"><span class="nav-number">3.</span> <span class="nav-text">开始</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#搭建本地环境"><span class="nav-number">1.</span> <span class="nav-text">搭建本地环境</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#准备工具"><span class="nav-number">1.1.</span> <span class="nav-text">准备工具</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#创建本地文件"><span class="nav-number">1.2.</span> <span class="nav-text">创建本地文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#本地测试"><span class="nav-number">1.3.</span> <span class="nav-text">本地测试</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#自定义主题"><span class="nav-number">1.4.</span> <span class="nav-text">自定义主题</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#链接github仓库"><span class="nav-number">2.</span> <span class="nav-text">链接github仓库</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#注册github账号"><span class="nav-number">2.1.</span> <span class="nav-text">注册github账号</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#创建仓库-New-repository"><span class="nav-number">2.2.</span> <span class="nav-text">创建仓库-New repository</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#链接本地和github"><span class="nav-number">2.3.</span> <span class="nav-text">链接本地和github</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#创建SSH秘钥，"><span class="nav-number">2.3.1.</span> <span class="nav-text">创建SSH秘钥，</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#添加SSH到github"><span class="nav-number">2.3.2.</span> <span class="nav-text">添加SSH到github</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#把本地的博客同步到github上"><span class="nav-number">2.3.3.</span> <span class="nav-text">把本地的博客同步到github上</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#使用Intellij写博客"><span class="nav-number">3.</span> <span class="nav-text">使用Intellij写博客</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#下载安装Intellij"><span class="nav-number">3.1.</span> <span class="nav-text">下载安装Intellij</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用Intellij"><span class="nav-number">3.2.</span> <span class="nav-text">使用Intellij</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#自定义域名（更新于2017年5月19日）"><span class="nav-number">4.</span> <span class="nav-text">自定义域名（更新于2017年5月19日）</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#注册购买域名"><span class="nav-number">4.1.</span> <span class="nav-text">注册购买域名</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#链接github地址"><span class="nav-number">4.2.</span> <span class="nav-text">链接github地址</span></a></li></ol></li></ol></div>
             
 
           </div>
