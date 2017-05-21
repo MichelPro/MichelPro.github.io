@@ -87,15 +87,18 @@
 
 
 
-<meta name="description" content="出问题多问百度和Google，本教程是针对于windows用户所写。  搭建本地环境准备工具工欲善其事必先利其器，我们首先要准备好两款软件node.js和git  这里安装配置暂时略过。 创建本地文件安装hexo：1$ npm install hexo-cli -g">
+<meta name="description" content="出问题多问百度和Google，本教程是针对于windows用户所写。  搭建本地环境准备工具工欲善其事必先利其器，我们首先要准备好两款软件node.js和git  这里安装配置暂且略过。 创建本地文件打开Git Bash，接下来的命令输入都是在Git Bash中进行 安装hexo：1$ npm install hexo-cli -g 正常会显示如下：">
 <meta name="keywords" content="Hexo">
 <meta property="og:type" content="article">
 <meta property="og:title" content="手把手教你用Hexo搭建Blog">
 <meta property="og:url" content="http://yoursite.com/2016/09/26/手把手教你用Hexo搭建Blog/index.html">
 <meta property="og:site_name" content="MichelPro's Blog">
-<meta property="og:description" content="出问题多问百度和Google，本教程是针对于windows用户所写。  搭建本地环境准备工具工欲善其事必先利其器，我们首先要准备好两款软件node.js和git  这里安装配置暂时略过。 创建本地文件安装hexo：1$ npm install hexo-cli -g">
+<meta property="og:description" content="出问题多问百度和Google，本教程是针对于windows用户所写。  搭建本地环境准备工具工欲善其事必先利其器，我们首先要准备好两款软件node.js和git  这里安装配置暂且略过。 创建本地文件打开Git Bash，接下来的命令输入都是在Git Bash中进行 安装hexo：1$ npm install hexo-cli -g 正常会显示如下：">
+<meta property="og:image" content="https://raw.githubusercontent.com/MichelPro/MichelPro.github.io/master/images/hexo_install.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/MichelPro/MichelPro.github.io/master/images/git_bash_here.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/MichelPro/MichelPro.github.io/master/images/hexo_note.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/MichelPro/MichelPro.github.io/master/images/github_new_repository.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/MichelPro/MichelPro.github.io/master/images/ssh_key.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/MichelPro/MichelPro.github.io/master/images/ssh.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/MichelPro/MichelPro.github.io/master/images/github_add_ssh_key.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/MichelPro/MichelPro.github.io/master/images/IntelliJ.png">
@@ -106,11 +109,11 @@
 <meta property="og:image" content="https://raw.githubusercontent.com/MichelPro/MichelPro.github.io/master/images/tencent_yun_manager.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/MichelPro/MichelPro.github.io/master/images/tencent_yun_dns.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/MichelPro/MichelPro.github.io/master/images/hexo_cname.png">
-<meta property="og:updated_time" content="2017-05-19T09:08:11.389Z">
+<meta property="og:updated_time" content="2017-05-21T02:54:15.782Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="手把手教你用Hexo搭建Blog">
-<meta name="twitter:description" content="出问题多问百度和Google，本教程是针对于windows用户所写。  搭建本地环境准备工具工欲善其事必先利其器，我们首先要准备好两款软件node.js和git  这里安装配置暂时略过。 创建本地文件安装hexo：1$ npm install hexo-cli -g">
-<meta name="twitter:image" content="https://raw.githubusercontent.com/MichelPro/MichelPro.github.io/master/images/git_bash_here.png">
+<meta name="twitter:description" content="出问题多问百度和Google，本教程是针对于windows用户所写。  搭建本地环境准备工具工欲善其事必先利其器，我们首先要准备好两款软件node.js和git  这里安装配置暂且略过。 创建本地文件打开Git Bash，接下来的命令输入都是在Git Bash中进行 安装hexo：1$ npm install hexo-cli -g 正常会显示如下：">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/MichelPro/MichelPro.github.io/master/images/hexo_install.png">
 
 
 
@@ -436,21 +439,21 @@
 <p>出问题多问<a href="http://www.baidu.com/" target="_blank" rel="external">百度</a>和<a href="https://www.google.com." target="_blank" rel="external">Google</a>，本教程是针对于windows用户所写。</p>
 </blockquote>
 <h1 id="搭建本地环境"><a href="#搭建本地环境" class="headerlink" title="搭建本地环境"></a>搭建本地环境</h1><h2 id="准备工具"><a href="#准备工具" class="headerlink" title="准备工具"></a>准备工具</h2><p>工欲善其事必先利其器，我们首先要准备好两款软件<a href="https://nodejs.org/en/" target="_blank" rel="external">node.js</a>和<a href="https://git-scm.com/" target="_blank" rel="external">git</a> </p>
-<p>这里安装配置暂时略过。</p>
-<h2 id="创建本地文件"><a href="#创建本地文件" class="headerlink" title="创建本地文件"></a>创建本地文件</h2><p>安装hexo：<br><figure class="highlight markdown"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ npm install hexo-cli -g</div></pre></td></tr></table></figure></p>
-<a id="more"></a>
-<p>如果遇到了以下的错误：<br><figure class="highlight markdown"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ERROR Deployer not found : github</div></pre></td></tr></table></figure></p>
+<p>这里安装配置暂且略过。</p>
+<h2 id="创建本地文件"><a href="#创建本地文件" class="headerlink" title="创建本地文件"></a>创建本地文件</h2><p>打开Git Bash，接下来的命令输入都是在Git Bash中进行</p>
+<p>安装hexo：<br><figure class="highlight markdown"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ npm install hexo-cli -g</div></pre></td></tr></table></figure></p>
+<p>正常会显示如下：</p>
+<p><img src="https://raw.githubusercontent.com/MichelPro/MichelPro.github.io/master/images/hexo_install.png" alt="hexo_install"><br><a id="more"></a><br>如果遇到了以下的错误：<br><figure class="highlight markdown"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ERROR Deployer not found : github</div></pre></td></tr></table></figure></p>
 <p>则直接运行以下命令，也可以直接运行以下命令：<br><figure class="highlight markdown"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ npm install hexo-deployer-git –save</div></pre></td></tr></table></figure></p>
-<p>找到你想存放本地博客的位置（建议直接在盘符的根目录下直接创建hexo文件夹），比如我就是在E:\hexo文件中存放我的个人博客</p>
+<p>找到你想存放本地博客的位置（建议直接在盘符的根目录下直接创建hexo文件夹），比如我就是在F:\hexo文件中存放我的个人博客</p>
 <p>进入这个文件夹，右键-&gt;Git Bash here</p>
 <p><img src="https://raw.githubusercontent.com/MichelPro/MichelPro.github.io/master/images/git_bash_here.png" alt="git_bash_here"></p>
 <p>然后在这里执行：<br><figure class="highlight markdown"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo init</div></pre></td></tr></table></figure></p>
 <p>这个时间可能比较长，执行过程中有warn也不用管，执行完毕之后，安装依赖包：<br><figure class="highlight markdown"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ npm install</div></pre></td></tr></table></figure></p>
-<p>安装完成后，E:\hexo 文件目录是这样的</p>
-<p>【待图】</p>
+<p>安装完成后，F:\hexo 文件目录是这样的（由于截图截晚了，划掉的文件是后期生成的）</p>
+<p><img src="https://raw.githubusercontent.com/MichelPro/MichelPro.github.io/master/images/hexo_note.png" alt="hexo_note"></p>
 <h2 id="本地测试"><a href="#本地测试" class="headerlink" title="本地测试"></a>本地测试</h2><p>执行完上述命令之后，其实博客已经生成。我们可以在本地预览下：<br><figure class="highlight markdown"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure></p>
-<p>然后我们用浏览器访问：<a href="http://localhost:4000/" target="_blank" rel="external">http://localhost:4000/</a> 就可以看到效果了，如图</p>
-<p>【待图】</p>
+<p>然后我们用浏览器访问：<a href="http://localhost:4000/" target="_blank" rel="external">http://localhost:4000/</a> 就可以看到效果了。</p>
 <p>如果要停止hexo服务，在Git Bash下按<code>Ctrl + C</code>即可</p>
 <p>关于hexo的命令 解释可以直接看<a href="https://hexo.io/zh-cn/docs/commands.html" target="_blank" rel="external">官网</a> </p>
 <h2 id="自定义主题"><a href="#自定义主题" class="headerlink" title="自定义主题"></a>自定义主题</h2><p>讨厌了默认的模样？hexo也是提供主题的。<br>我们可以到</p>
@@ -463,7 +466,7 @@
 <p><img src="https://raw.githubusercontent.com/MichelPro/MichelPro.github.io/master/images/github_new_repository.png" alt="github_new_repository"></p>
 <h2 id="链接本地和github"><a href="#链接本地和github" class="headerlink" title="链接本地和github"></a>链接本地和github</h2><h3 id="创建SSH秘钥，"><a href="#创建SSH秘钥，" class="headerlink" title="创建SSH秘钥，"></a>创建SSH秘钥，</h3><p>鼠标右键任意地方，打开Git Bash，输入以下命令：<br><figure class="highlight markdown"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ ssh-keygen -t rsa -C "你的github的邮箱地址"</div></pre></td></tr></table></figure></p>
 <p>然后三次回车，最后生成效果如图：</p>
-<p>【待截图】</p>
+<p><img src="https://raw.githubusercontent.com/MichelPro/MichelPro.github.io/master/images/ssh_key.png" alt="ssh_key"></p>
 <p>这时候，打开C:\Users\你的pc用户名.ssh就可以看到生成的私钥和公钥</p>
 <p><img src="https://raw.githubusercontent.com/MichelPro/MichelPro.github.io/master/images/ssh.png" alt="ssh"></p>
 <p>其中: </p>
