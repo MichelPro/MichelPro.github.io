@@ -969,7 +969,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/01/27/重新设计Android目录结构/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/01/27/重新设计Android项目结构/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="MichelPro">
@@ -991,8 +991,8 @@
             
               
                 
-                <a class="post-title-link" href="/2017/01/27/重新设计Android目录结构/" itemprop="url">
-                  重新设计Android目录结构
+                <a class="post-title-link" href="/2017/01/27/重新设计Android项目结构/" itemprop="url">
+                  重新设计Android项目结构
                 </a>
               
             
@@ -1048,7 +1048,7 @@
 
           
           
-             <span id="/2017/01/27/重新设计Android目录结构/" class="leancloud_visitors" data-flag-title="重新设计Android目录结构">
+             <span id="/2017/01/27/重新设计Android项目结构/" class="leancloud_visitors" data-flag-title="重新设计Android项目结构">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -1078,11 +1078,13 @@
 
       
         
-          <h2 id="丑到爆的Android目录"><a href="#丑到爆的Android目录" class="headerlink" title="丑到爆的Android目录"></a>丑到爆的Android目录</h2><p>想必大家都看到过这样的包目录：（待重写）<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">com.michel.xxxx</div><div class="line">    |--activity</div><div class="line">    |--fragment</div><div class="line">    |--utils</div><div class="line">    |--adapter</div><div class="line">    …………</div></pre></td></tr></table></figure></p>
-<p>这样的结构不是不好，最起码前期省心不是，而且也算是基本做到了分门别类的放置各种Java类。但是这样最起码不利于根据业务功能快速的定位某个类，就算是这些类都是你自己写的，但是谁敢保证一年后再去找还能快速找到呢？<br>
+          <h1 id="一团糟的项目结构"><a href="#一团糟的项目结构" class="headerlink" title="一团糟的项目结构"></a>一团糟的项目结构</h1><p>也许是因为赶进度，也许是因为各种原因，我们有时候无脑cv一通，项目很快就完成了上线。然后你回头看你的项目结构是这样的：</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">com.michel</div><div class="line"><span class="code">    |--activity</span></div><div class="line"><span class="code">    |--fragment</span></div><div class="line"><span class="code">    |--utils</span></div><div class="line"><span class="code">    |--adapter</span></div><div class="line"><span class="code">    …………</span></div></pre></td></tr></table></figure>
+<p>乍一看还是可以的，最起码基本做到了分门别类的放置。但是也许你的Activity包里已经有了近百个Activity了，这时候如果上面经过开会决定某一部分的业务流程进行修改，那你还能准确定位到所有相关类么？而且由于前期没有经过任何设计，你的代码其实已经是一坨一坨的了，牵一发而动全身，动一下都可能导致到处都会崩溃。</p>
+<p>这时候你就不得不进行项目重构了，一个好的项目结构设计，能够很好的应对后期需求的各种调整。这里Michel就简单跟你说说相对优化的项目结构是怎样的。</p>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2017/01/27/重新设计Android目录结构/#more" rel="contents">
+            <a class="btn" href="/2017/01/27/重新设计Android项目结构/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>

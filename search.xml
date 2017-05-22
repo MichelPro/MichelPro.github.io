@@ -45,9 +45,9 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[重新设计Android目录结构]]></title>
-    <url>%2F2017%2F01%2F27%2F%E9%87%8D%E6%96%B0%E8%AE%BE%E8%AE%A1Android%E7%9B%AE%E5%BD%95%E7%BB%93%E6%9E%84%2F</url>
-    <content type="text"><![CDATA[丑到爆的Android目录想必大家都看到过这样的包目录：（待重写）123456com.michel.xxxx |--activity |--fragment |--utils |--adapter ………… 这样的结构不是不好，最起码前期省心不是，而且也算是基本做到了分门别类的放置各种Java类。但是这样最起码不利于根据业务功能快速的定位某个类，就算是这些类都是你自己写的，但是谁敢保证一年后再去找还能快速找到呢？ 根据业务模块分包？（待定）]]></content>
+    <title><![CDATA[重新设计Android项目结构]]></title>
+    <url>%2F2017%2F01%2F27%2F%E9%87%8D%E6%96%B0%E8%AE%BE%E8%AE%A1Android%E9%A1%B9%E7%9B%AE%E7%BB%93%E6%9E%84%2F</url>
+    <content type="text"><![CDATA[一团糟的项目结构也许是因为赶进度，也许是因为各种原因，我们有时候无脑cv一通，项目很快就完成了上线。然后你回头看你的项目结构是这样的： 123456com.michel |--activity |--fragment |--utils |--adapter ………… 乍一看还是可以的，最起码基本做到了分门别类的放置。但是也许你的Activity包里已经有了近百个Activity了，这时候如果上面经过开会决定某一部分的业务流程进行修改，那你还能准确定位到所有相关类么？而且由于前期没有经过任何设计，你的代码其实已经是一坨一坨的了，牵一发而动全身，动一下都可能导致到处都会崩溃。 这时候你就不得不进行项目重构了，一个好的项目结构设计，能够很好的应对后期需求的各种调整。这里Michel就简单跟你说说相对优化的项目结构是怎样的。 重新规划Android项目结构第一步：建立AndroidLib类库之前所有的东西我们都放在了一个module里，非常混乱而且不易于维护。我们要做的，是将与业务无关的逻辑转移到AndroidLib中，最后让我们的app通过Gradle依赖AndroidLib即可。 那么，AndroidLib中应该包括什么呢？ 我认为最起码包括以下几点： base 这个包下主要存放的是BaseActivity、BaseFragment、BaseAdapter等基类，但是这些基类中封装的是业务无关的公用逻辑，主项目中可以再次封装一些业务相关的公用逻辑。 ui 这里没什么好说的，当然是我们的自定义控件。 common common是一个通用型的工具箱集，它可以对上层所依赖的第三方框架做解耦操作。如何理解这句话呢？ 假如我们要解析json，我们肯定不会重复造轮子。解析JSON的框架就有很多，比如Ali的FastJSON，Google的Gson等。 在没有common时，项目1.0使用了FastJSON进行json的数据解析，但是项目2.0时，FastJSON存在某些BUG，你需要将FastJSON替换成Gson。但是由于你到处使用到了FastJSON，你无法做到只是改一行代码就能让所有的json解析都换成Gson。 这时common的威力就显现出来了。我们将json解析库进行二次封装，项目中调用common，common调用第三方依赖，如果更换第三方库，我们只需要在common中进行调整即可。 这只是个例子，网络请求、图片加载等我们都可以这样做进行解耦。 最终我们的AndroidLib包结构大概是这样的： 12345678AndroidLib |--src |--main |--java |--com.michel |--base |--ui |--common 当然，如果你有更好的想法当然可以进行自我调整。 第二步：重新设计主项目的包说完了基础类库，我们再来说说主项目。 其实我们之前所展示的主项目的结构也差不多，在这里我们只需要在此基础上进行一些微调即可1234567com.michel |--activity // 这里可以按照业务模块进行继续拆分 |--fragment |--utils |--adapter |--entity // 所有的实体 |--base // 与业务相关的BaseActivity等，继承AndroidLib中的BaseActivity 以上就是主项目结构的微调，其实和最初没有太大的改变，主要是我们将业务无关的公用逻辑以及第三方库进行解耦抽取到了AndroidLib中，虽然结构表面看起来没有多大改善，实际应用中你会发现比之前简直好了太多。]]></content>
       <categories>
         <category>技术博文</category>
       </categories>
